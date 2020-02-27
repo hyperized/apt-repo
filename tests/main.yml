@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes
+  roles:
+    - role: hyperized.apt-repo
+      apt_repo_repo: deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
+
+  tasks:
+    - apt:
+        name: python3-pip
+
+    - command: dpkg -l python3-pip
+      register: dpkg
+      changed_when: false
+
+    - assert:
+        that:
+          - '"no packages found matching" not in dpkg.stdout'
+          - '"ii" in dpkg.stdout'

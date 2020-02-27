@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Gerben Geijteman
+  description: Ubuntu APT repository manager
+  company: Hyperized.net
+  license: MIT
+  min_ansible_version: 2.5
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+  galaxy_tags:
+    - apt
+    - repo
+dependencies: []

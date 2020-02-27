@@ -1,0 +1,7 @@
+---
+- name: ensure apt repo
+  apt_repository:
+     filename: "{{ apt_repo_filename | default(omit) }}"
+     repo: "{{ apt_repo_repo }}"
+     state: "{{ apt_repo_state | default(omit) }}"
+  register: my_repo
